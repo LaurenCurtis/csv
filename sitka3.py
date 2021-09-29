@@ -43,7 +43,17 @@ plt.plot(dates, lows, c = "blue", alpha = .5)
 plt.fill_between(dates, highs, lows, facecolor = 'blue', alpha = .1)
 
 
-
 fig.autofmt_xdate()
 
+plt.show()
+
+plt.subplot(2,1,1)
+plt.plot(dates,highs, c = 'red')
+plt.title("Highs")
+
+plt.subplot(2,1,2)
+plt.plot(dates, lows, c = 'blue')
+plt.title("Lows")
+
+plt.suptitle("Highs and Lows of Sitka, Alaska")
 plt.show()
