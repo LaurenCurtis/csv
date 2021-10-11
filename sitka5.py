@@ -15,6 +15,8 @@ for index, column_header in enumerate(header_row):
         tmax = index
     elif column_header == "TMIN":
         tmin = index
+    elif column_header == "NAME":
+        name = index
 
 
 
@@ -30,6 +32,7 @@ for row in csv_file:
         the_date = datetime.strptime(row[2], '%Y-%m-%d')
         high = int(row[tmax])
         low = int(row[tmin])
+        title_name = row[name]
     except ValueError:
         print(f"Missing data for {the_date}")
     else:
@@ -44,7 +47,7 @@ print(lows)
 #importing the graph
 import matplotlib.pyplot as plt
 fig = plt.figure()
-plt.title("Daily Temperatures, 2018", fontsize = 16)
+plt.title(title_name, fontsize = 16)
 plt.xlabel("Day", fontsize = 12)
 plt.ylabel("Temperatures (F)", fontsize = 12)
 plt.tick_params(axis="both", which="major", labelsize = 12)
